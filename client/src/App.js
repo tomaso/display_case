@@ -16,7 +16,7 @@ function App() {
     <>
       <LocoCard 
         dcc_id="3" 
-        loco_img="/loco_114_298-3.jpg" 
+        loco_img="/client/loco_114_298-3.jpg" 
         loco_title="Dieselová lokomotiva řady 114 Deutsche Reichsbahn" 
         loco_details="Původní řada 110 byla vyvinuta pro osobní a nákladní vlakovou dopravu a jako 
         varianta pro použití v posunovacích službách pro DR. Maximální rychlost byla 
@@ -26,7 +26,7 @@ function App() {
       />
       <LocoCard 
         dcc_id="4" 
-        loco_img="/loco_br_170.jpg" 
+        loco_img="/client/loco_br_170.jpg" 
         loco_title="el. lokomotiva BR 170 DB-AG Polska"
         loco_details="Varianta lokomotivy Vectron pro DB Schenker Rail Polska 
         je určena pro provoz v polské stejnosměrné síti a je vybavena příslušným 

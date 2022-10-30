@@ -34,6 +34,8 @@ interface ExpandMoreProps extends IconButtonProps {
   export default function RecipeReviewCard(inputProps) {
     const [expanded, setExpanded] = React.useState(false);
     const [locoLight, setLocoLight] = React.useState(false);
+    //let host_endpoint = 'http://172.17.0.16:8001';
+    let host_endpoint = 'http://127.0.0.1:8001';
 
     function callLocoLightApi() {
         const requestOptions = {
@@ -41,7 +43,7 @@ interface ExpandMoreProps extends IconButtonProps {
             headers: { 'Content-Type': 'application/json' },
         };
         fetch(
-            'http://172.17.0.16:8001/trains/light/'+inputProps.dcc_id+'/'+(!locoLight ? 255 : 0),
+            host_endpoint+'/trains/light/'+inputProps.dcc_id+'/'+(!locoLight ? 255 : 0),
             requestOptions
         )
         .then(response => response.json())
@@ -53,7 +55,7 @@ interface ExpandMoreProps extends IconButtonProps {
             headers: { 'Content-Type': 'application/json' },
         };
         fetch(
-            'http://172.17.0.16:8001/trains/dcc/'+inputProps.dcc_id+'/'+cmd_number+'/'+value,
+            host_endpoint+'/trains/dcc/'+inputProps.dcc_id+'/'+cmd_number+'/'+value,
             requestOptions
         )
         .then(response => response.json())
