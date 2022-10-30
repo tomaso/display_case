@@ -5,16 +5,16 @@ from pydantic import BaseModel
 from PIL import Image
 from pprint import pprint
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 import asyncio
 
 app = FastAPI()
 
+app.mount("/client", StaticFiles(directory="client"), name="client")
+
 origins = [
-    "http://localhost",
-    "http://localhost:8080",
-    "http://localhost:3000",
-    "http://172.17.0.12:3000",
-    "http://172.17.0.16:3000",
+    "http://localhost:8001",
+    "http://rpi1.kouba.xyz:8001",
 ]
 
 app.add_middleware(
