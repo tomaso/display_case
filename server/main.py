@@ -98,7 +98,7 @@ async def loco_get(loco_id: int, function: int, value: int):
         lambda: EchoClientProtocol(
             f"<F {loco_id} {function} {value}>\n", on_con_lost
         ),
-        "172.17.0.104",
+        "172.17.0.31",
         2560,
     )
     transport.close()
@@ -107,3 +107,7 @@ async def loco_get(loco_id: int, function: int, value: int):
     finally:
         transport.close()
     return None
+
+@app.get("/neopixel")
+async def root():
+    return neopixels_data
