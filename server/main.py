@@ -61,6 +61,22 @@ neopixels_data = {
 loco_data = {3: {"start": 16, "end": 22}, 4: {"start": 1, "end": 8}}
 
 
+
+@app.get("/trains/light/{loco_id}/{lightness}")
+async def loco_get(loco_id: int, lightness: int):
+    value = lightness % 256
+    print(value)
+    if loco_id in loco_data:
+        for i in range(loco_data[loco_id]["start"], loco_data[loco_id]["end"] + 1):
+            neopixels_data[i]["r"] = value
+            neopixels_data[i]["g"] = value
+            neopixels_data[i]["b"] = value
+    return None
+
+#######################
+# DCC helpers and API #
+#######################
+
 class EchoClientProtocol(asyncio.Protocol):
     def __init__(self, message, on_con_lost):
         self.message = message
@@ -77,26 +93,12 @@ class EchoClientProtocol(asyncio.Protocol):
         print("The server closed the connection")
         self.on_con_lost.set_result(True)
 
-
-@app.get("/trains/light/{loco_id}/{lightness}")
-async def loco_get(loco_id: int, lightness: int):
-    value = lightness % 256
-    print(value)
-    if loco_id in loco_data:
-        for i in range(loco_data[loco_id]["start"], loco_data[loco_id]["end"] + 1):
-            neopixels_data[i]["r"] = value
-            neopixels_data[i]["g"] = value
-            neopixels_data[i]["b"] = value
-    return None
-
-
-@app.get("/trains/dcc/{loco_id}/{function}/{value}")
-async def loco_get(loco_id: int, function: int, value: int):
+async def send_dcc_cmd_close(cmd):
     loop = asyncio.get_running_loop()
     on_con_lost = loop.create_future()
     transport, protocol = await loop.create_connection(
         lambda: EchoClientProtocol(
-            f"<F {loco_id} {function} {value}>\n", on_con_lost
+            f"{cmd}\n", on_con_lost
         ),
         "172.17.0.31",
         2560,
@@ -106,6 +108,19 @@ async def loco_get(loco_id: int, function: int, value: int):
         await on_con_lost
     finally:
         transport.close()
+    return None
+
+@app.get("/trains/dcc/{loco_id}/{function}/{value}")
+async def loco_get(loco_id: int, function: int, value: int):
+    cmd = f"<F {loco_id} {function} {value}>"
+    await send_dcc_cmd_close(cmd)
+    return None
+
+@app.get("/trains/dcc/power/{value}")
+async def loco_get(value: int):
+    value = 1 if value>0 else 0
+    cmd = f"<1 MAIN>"
+    await send_dcc_cmd_close(cmd)
     return None
 
 @app.get("/neopixel")
