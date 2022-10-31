@@ -1,0 +1,17 @@
+# Development
+
+* Read endpoints from a configuration file so we can run dev and prod instances
+
+## Client
+
+* Read power status on load and switch it on if necessary
+
+## PICO client
+
+* Store pico w code here. 
+* Add a webhook to it so we can signal a change.
+
+# Deployment
+
+* Build and upload images during CI
+* Trigger ansible run (to restart the docker image)
