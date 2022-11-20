@@ -3,15 +3,32 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-import * as React from 'react';
+//import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import RB from './Rb';
 import LocoCard from './LocoCard'
 
 import './App.css';
 
+let host_endpoint = 'http://rpi1.kouba.xyz:8001';
+
+function PowerOn() {
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    };
+    fetch(
+        host_endpoint+'/trains/dcc/power/1',
+        requestOptions
+    )
+    .then(response => response.json())
+}
 
 function App() {
+  useEffect(() => {
+	  PowerOn();
+  });
   return (
     <>
       <LocoCard 
