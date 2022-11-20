@@ -15,6 +15,8 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import HighlightIcon from '@mui/icons-material/Highlight';
+import TrainIcon from '@mui/icons-material/Train';
 
 interface ExpandMoreProps extends IconButtonProps {
     expand: boolean;
@@ -31,11 +33,14 @@ interface ExpandMoreProps extends IconButtonProps {
     }),
   }));
   
-  export default function RecipeReviewCard(inputProps) {
+  export default function LocoCard(inputProps) {
     const [expanded, setExpanded] = React.useState(false);
     const [locoLight, setLocoLight] = React.useState(false);
+    const [locoHeadlight, setLocoHeadlight] = React.useState(false);
+    const [locoRunning, setLocoRunning] = React.useState(false);
     //let host_endpoint = 'http://172.17.0.16:8001';
-    let host_endpoint = 'http://127.0.0.1:8001';
+    //let host_endpoint = 'http://127.0.0.1:8001';
+    let host_endpoint = 'http://rpi1.kouba.xyz:8001';
 
     function callLocoLightApi() {
         const requestOptions = {
@@ -73,7 +78,19 @@ interface ExpandMoreProps extends IconButtonProps {
 
     const handleHornClick = () => {
         executeShortDCCCmd(12,1);
-        executeShortDCCCmd(12,0);
+	setTimeout(() => {
+        	executeShortDCCCmd(12,0);
+	}, 1000)
+    };
+
+    const handleHeadlightClick = () => {
+        setLocoHeadlight(!locoHeadlight);
+        executeShortDCCCmd(0,(!locoHeadlight ? 1 : 0));
+    };
+
+    const handleRunningClick = () => {
+        setLocoRunning(!locoRunning);
+        executeShortDCCCmd(16,(!locoRunning ? 1 : 0));
     };
   
     return (
@@ -105,6 +122,12 @@ interface ExpandMoreProps extends IconButtonProps {
           <CardActions disableSpacing>
             <IconButton aria-label="switch lights" onClick={handleLocoLightClick}>
             <LightIcon color={locoLight ? "success" : "action"}/>
+            </IconButton>
+            <IconButton aria-label="headlight" onClick={handleHeadlightClick}>
+            <HighlightIcon color={locoHeadlight ? "success" : "action"}/>
+            </IconButton>
+            <IconButton aria-label="running" onClick={handleRunningClick}>
+            <TrainIcon color={locoRunning ? "success" : "action"}/>
             </IconButton>
             <IconButton aria-label="horn" onClick={handleHornClick}>
             <VolumeUpIcon/>
