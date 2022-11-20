@@ -7,6 +7,7 @@ from pprint import pprint
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import asyncio
+import aiohttp
 
 app = FastAPI()
 
@@ -33,44 +34,66 @@ class Pixel(BaseModel):
 
 
 neopixels_data = {
-    0: {"r": 0, "g": 0, "b": 0},
-    1: {"r": 0, "g": 0, "b": 0},
-    2: {"r": 0, "g": 0, "b": 0},
-    3: {"r": 0, "g": 0, "b": 0},
-    4: {"r": 0, "g": 0, "b": 0},
-    5: {"r": 0, "g": 0, "b": 0},
-    6: {"r": 0, "g": 0, "b": 0},
-    7: {"r": 0, "g": 0, "b": 0},
-    8: {"r": 0, "g": 0, "b": 0},
-    9: {"r": 0, "g": 0, "b": 0},
-    10: {"r": 0, "g": 0, "b": 0},
-    11: {"r": 0, "g": 0, "b": 0},
-    12: {"r": 0, "g": 0, "b": 0},
-    13: {"r": 0, "g": 0, "b": 0},
-    14: {"r": 0, "g": 0, "b": 0},
-    15: {"r": 0, "g": 0, "b": 0},
-    16: {"r": 0, "g": 0, "b": 0},
-    17: {"r": 0, "g": 0, "b": 0},
-    18: {"r": 0, "g": 0, "b": 0},
-    19: {"r": 0, "g": 0, "b": 0},
-    20: {"r": 0, "g": 0, "b": 0},
-    21: {"r": 0, "g": 0, "b": 0},
-    22: {"r": 0, "g": 0, "b": 0},
+    0: 0,
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0,
+    9: 0,
+    10: 0,
+    11: 0,
+    12: 0,
+    13: 0,
+    14: 0,
+    15: 0,
+    16: 0,
+    17: 0,
+    18: 0,
+    19: 0,
+    20: 0,
+    21: 0,
+    22: 0
 }
 
 loco_data = {3: {"start": 16, "end": 22}, 4: {"start": 1, "end": 8}}
 
 
+async def update_neopixels():
+    """ Synchronize internal state of neopixels with 
+    the server running on my rpi pico w
+    """
+    server_ip = "172.17.0.32"
+    server_port = 80
+    idx = 0
+    value = neopixels_data[0]
+    url = f"http://{server_ip}:{server_port}/{value}/{value}/{value}/{idx}"
+    async with aiohttp.ClientSession() as session:
+        while True:
+            idx += 1
+            if idx<23 and neopixels_data[idx] == value:
+                url += f"/{idx}"
+            else:
+                print(url)
+                async with session.get(url) as response:
+                    print(response)
+                if idx<23:
+                    value = neopixels_data[idx]
+                    url = f"http://{server_ip}:{server_port}/{value}/{value}/{value}/{idx}"
+                else:
+                    break
+
 
 @app.get("/trains/light/{loco_id}/{lightness}")
 async def loco_get(loco_id: int, lightness: int):
     value = lightness % 256
-    print(value)
     if loco_id in loco_data:
         for i in range(loco_data[loco_id]["start"], loco_data[loco_id]["end"] + 1):
-            neopixels_data[i]["r"] = value
-            neopixels_data[i]["g"] = value
-            neopixels_data[i]["b"] = value
+            neopixels_data[i] = value
+    await update_neopixels()
     return None
 
 #######################
@@ -119,7 +142,7 @@ async def loco_get(loco_id: int, function: int, value: int):
 @app.get("/trains/dcc/power/{value}")
 async def loco_get(value: int):
     value = 1 if value>0 else 0
-    cmd = f"<1 MAIN>"
+    cmd = f"<{value} MAIN>"
     await send_dcc_cmd_close(cmd)
     return None
 
