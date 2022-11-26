@@ -126,12 +126,16 @@ interface ExpandMoreProps extends IconButtonProps {
             <IconButton aria-label="headlight" onClick={handleHeadlightClick}>
             <HighlightIcon color={locoHeadlight ? "success" : "action"}/>
             </IconButton>
-            <IconButton aria-label="running" onClick={handleRunningClick}>
-            <TrainIcon color={locoRunning ? "success" : "action"}/>
-            </IconButton>
-            <IconButton aria-label="horn" onClick={handleHornClick}>
-            <VolumeUpIcon/>
-            </IconButton>
+            {inputProps.sound === "true" &&
+              <>
+                <IconButton aria-label="running" onClick={handleRunningClick}>
+                <TrainIcon color={locoRunning ? "success" : "action"}/>
+                </IconButton>
+                <IconButton aria-label="horn" onClick={handleHornClick}>
+                <VolumeUpIcon/>
+                </IconButton>
+              </>
+            }
             <ExpandMore
               expand={expanded}
               onClick={handleExpandClick}
@@ -149,112 +153,4 @@ interface ExpandMoreProps extends IconButtonProps {
           </Collapse>
         </Card>
     );
-  }
-
-/*    
-    return (
-        <div>
-        <Card variant="outlined" sx={{ minWidth: 345, maxWidth: 345 }}>
-          <CardHeader
-            avatar={
-              <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                3
-              </Avatar>
-            }
-            action={
-              <IconButton aria-label="settings">
-                <MoreVertIcon />
-              </IconButton>
-            }
-            title="Dieselová lokomotiva řady 114 Deutsche Reichsbahn"
-            subheader="subheader"
-          />
-          <CardMedia
-            component="img"
-            height="120"
-            image="/loco_114_298-3.jpg"
-            alt="Loco pic"
-          />
-          <CardContent>
-            <Typography variant="body2" color="text.secondary">
-            Dieselová lokomotiva řady 114 Deutsche Reichsbahn
-            </Typography>
-          </CardContent>
-          <CardActions disableSpacing>
-            <IconButton aria-label="add to favorites">
-              <LightIcon color="action"/>
-            </IconButton>
-            <ExpandMore
-              expand={expanded}
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="show more"
-            >
-              <ExpandMoreIcon />
-            </ExpandMore>
-          </CardActions>
-          <Collapse in={expanded} timeout="auto" unmountOnExit>
-            <CardContent>
-              <Typography paragraph>Detaily:</Typography>
-              <Typography paragraph>
-                Původní řada 110 byla vyvinuta pro osobní a nákladní vlakovou dopravu a jako 
-              varianta pro použití v posunovacích službách pro DR. Maximální rychlost byla 
-              100 km / h s výkonem 1 000 koní. V letech 1983 až 1991 byly do některých 
-              strojů instalovány nové motory s nominálním výkonem 1 500 koní a překresleny 
-              jako BR 114.        
-              </Typography>
-            </CardContent>
-          </Collapse>
-        </Card>
-        <Card sx={{ minWidth: 345, maxWidth: 345 }}>
-        <CardHeader
-          avatar={
-            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-              4
-            </Avatar>
-          }
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
-          }
-          title="el. lokomotiva BR 170 DB-AG Polska"
-          subheader="subheader"
-        />
-        <CardMedia
-          component="img"
-          height="120"
-          image="/loco_br_170.jpg"
-          alt="Loco pic"
-        />
-        <CardContent>
-          <Typography variant="body2" color="text.secondary">
-          Elektrická lokomotiva řady 170 DB Schenker Rail Polska.
-          </Typography>
-        </CardContent>
-        <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <LightIcon color="action"/>
-          </IconButton>
-          <ExpandMore
-            expand={expanded}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-          >
-            <ExpandMoreIcon />
-          </ExpandMore>
-        </CardActions>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Typography paragraph>Detaily:</Typography>
-            <Typography paragraph>
-            Varianta lokomotivy Vectron pro DB Schenker Rail Polska je určena pro provoz v polské stejnosměrné síti a je vybavena příslušným vlakovým zabezpečovacím zařízením.
-            </Typography>
-          </CardContent>
-        </Collapse>
-      </Card>
-      </div>
-    );
-  */
-  
+  }  

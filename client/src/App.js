@@ -32,7 +32,8 @@ function App() {
   return (
     <>
       <LocoCard 
-        dcc_id="3" 
+        dcc_id="3"
+        sound="false"
         loco_img="/client/loco_114_298-3.jpg" 
         loco_title="Dieselová lokomotiva řady 114 Deutsche Reichsbahn" 
         loco_details="Původní řada 110 byla vyvinuta pro osobní a nákladní vlakovou dopravu a jako 
@@ -42,7 +43,8 @@ function App() {
         jako BR 114."
       />
       <LocoCard 
-        dcc_id="4" 
+        dcc_id="4"
+        sound="true"
         loco_img="/client/loco_br_170.jpg" 
         loco_title="el. lokomotiva BR 170 DB-AG Polska"
         loco_details="Varianta lokomotivy Vectron pro DB Schenker Rail Polska 
