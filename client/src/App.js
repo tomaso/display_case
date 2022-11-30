@@ -32,6 +32,13 @@ function App() {
   return (
     <>
       <LocoCard 
+        dcc_id="2"
+        sound="false"
+        loco_img="/client/loco_br_185.jpg"
+        loco_title="Elektrická lokomotiva řady 185"
+        loco_details=""
+      />
+      <LocoCard 
         dcc_id="3"
         sound="false"
         loco_img="/client/loco_114_298-3.jpg" 
