@@ -94,7 +94,7 @@ interface ExpandMoreProps extends IconButtonProps {
     };
   
     return (
-        <Card variant="outlined" sx={{ minWidth: 345, maxWidth: 345 }}>
+        <Card variant="outlined" sx={{ minWidth: 345, maxWidth: 345, display: "inline-block", verticalAlign: "top" }}>
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -116,7 +116,6 @@ interface ExpandMoreProps extends IconButtonProps {
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-                {inputProps.loco_details}
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
@@ -148,6 +147,7 @@ interface ExpandMoreProps extends IconButtonProps {
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
               <Typography paragraph>
+                {inputProps.loco_details}
               </Typography>
             </CardContent>
           </Collapse>
