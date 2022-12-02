@@ -59,7 +59,7 @@ neopixels_data = {
     22: 0
 }
 
-loco_data = {2: {"start": 16, "end": 22}, 3: {"start": 9, "end": 15}, 4: {"start": 1, "end": 8}}
+loco_data = {2: {"start": 14, "end": 22}, 3: {"start": 8, "end": 15}, 4: {"start": 1, "end": 8}}
 
 
 async def update_neopixels():
