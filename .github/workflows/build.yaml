@@ -37,7 +37,14 @@ jobs:
           push: true
           tags: tomaso/dc:latest
           platforms: linux/amd64,linux/arm64
-
+      - name: Download client from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: client-dist
+          path: server/client
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: server/client
 
 # - uses: actions/download-artifact@master
 #  with:
