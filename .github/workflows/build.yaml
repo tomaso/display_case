@@ -1,0 +1,21 @@
+name: Build client
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: npm install, build
+        run: |
+          cd client
+          npm install
+          npm run build
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: client-dist
+          path: |
+            client/build
