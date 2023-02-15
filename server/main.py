@@ -149,3 +149,11 @@ async def loco_get(value: int):
 @app.get("/neopixel")
 async def root():
     return neopixels_data
+
+import hashlib
+m = hashlib.md5()
+
+
+from Crypto.Cipher import DES
+b=DES.new(b'asdfasdf', DES.MODE_CBC).encrypt(b'qwerqwer')
+print(b)
