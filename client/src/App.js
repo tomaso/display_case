@@ -57,6 +57,30 @@ function App() {
         vlakovým zabezpečovacím zařízením.
         " 
       />
+      <LocoCard 
+        dcc_id="5"
+        sound="false"
+        loco_img="/client/roco-54169.jpg"
+        loco_title=""
+        loco_details="
+        " 
+      />
+      <LocoCard 
+        dcc_id="6"
+        sound="false"
+        loco_img="/client/roco-54171.jpg"
+        loco_title=""
+        loco_details="
+        " 
+      />
+      <LocoCard 
+        dcc_id="7"
+        sound="false"
+        loco_img="/client/piko-58769.jpg"
+        loco_title=""
+        loco_details="
+        " 
+      />
    </>
   );
 }

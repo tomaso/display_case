@@ -33,36 +33,17 @@ class Pixel(BaseModel):
     b: int
 
 
-neopixels_data = {
-    0: 0,
-    1: 0,
-    2: 0,
-    3: 0,
-    4: 0,
-    5: 0,
-    6: 0,
-    7: 0,
-    8: 0,
-    9: 0,
-    10: 0,
-    11: 0,
-    12: 0,
-    13: 0,
-    14: 0,
-    15: 0,
-    16: 0,
-    17: 0,
-    18: 0,
-    19: 0,
-    20: 0,
-    21: 0,
-    22: 0,
-}
+NO_NEOPIXELS = 45
+
+neopixels_data = dict(zip(range(NO_NEOPIXELS), (0,) * NO_NEOPIXELS))
 
 loco_data = {
     2: {"start": 14, "end": 22},
     3: {"start": 8, "end": 15},
     4: {"start": 1, "end": 8},
+    5: {"start": 23, "end": 30},
+    6: {"start": 31, "end": 38},
+    7: {"start": 39, "end": 44},
 }
 
 
@@ -78,13 +59,13 @@ async def update_neopixels():
     async with aiohttp.ClientSession() as session:
         while True:
             idx += 1
-            if idx < 23 and neopixels_data[idx] == value:
+            if idx < NO_NEOPIXELS and neopixels_data[idx] == value:
                 url += f"/{idx}"
             else:
                 print(url)
                 async with session.get(url) as response:
                     print(response)
-                if idx < 23:
+                if idx < NO_NEOPIXELS:
                     value = neopixels_data[idx]
                     url = f"http://{server_ip}:{server_port}/{value}/{value}/{value}/{idx}"
                 else:
