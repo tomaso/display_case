@@ -9,7 +9,6 @@
 ## PICO client
 
 * Store pico w code here. 
-* Add a webhook to it so we can signal a change.
 
 # Deployment
 

@@ -56,14 +56,18 @@ neopixels_data = {
     19: 0,
     20: 0,
     21: 0,
-    22: 0
+    22: 0,
 }
 
-loco_data = {2: {"start": 14, "end": 22}, 3: {"start": 8, "end": 15}, 4: {"start": 1, "end": 8}}
+loco_data = {
+    2: {"start": 14, "end": 22},
+    3: {"start": 8, "end": 15},
+    4: {"start": 1, "end": 8},
+}
 
 
 async def update_neopixels():
-    """ Synchronize internal state of neopixels with 
+    """Synchronize internal state of neopixels with
     the server running on my rpi pico w
     """
     server_ip = "172.17.0.32"
@@ -74,13 +78,13 @@ async def update_neopixels():
     async with aiohttp.ClientSession() as session:
         while True:
             idx += 1
-            if idx<23 and neopixels_data[idx] == value:
+            if idx < 23 and neopixels_data[idx] == value:
                 url += f"/{idx}"
             else:
                 print(url)
                 async with session.get(url) as response:
                     print(response)
-                if idx<23:
+                if idx < 23:
                     value = neopixels_data[idx]
                     url = f"http://{server_ip}:{server_port}/{value}/{value}/{value}/{idx}"
                 else:
@@ -96,9 +100,11 @@ async def loco_get(loco_id: int, lightness: int):
     await update_neopixels()
     return None
 
+
 #######################
 # DCC helpers and API #
 #######################
+
 
 class EchoClientProtocol(asyncio.Protocol):
     def __init__(self, message, on_con_lost):
@@ -116,13 +122,12 @@ class EchoClientProtocol(asyncio.Protocol):
         print("The server closed the connection")
         self.on_con_lost.set_result(True)
 
+
 async def send_dcc_cmd_close(cmd):
     loop = asyncio.get_running_loop()
     on_con_lost = loop.create_future()
     transport, protocol = await loop.create_connection(
-        lambda: EchoClientProtocol(
-            f"{cmd}\n", on_con_lost
-        ),
+        lambda: EchoClientProtocol(f"{cmd}\n", on_con_lost),
         "172.17.0.31",
         2560,
     )
@@ -133,18 +138,21 @@ async def send_dcc_cmd_close(cmd):
         transport.close()
     return None
 
+
 @app.get("/trains/dcc/{loco_id}/{function}/{value}")
 async def loco_get(loco_id: int, function: int, value: int):
     cmd = f"<F {loco_id} {function} {value}>"
     await send_dcc_cmd_close(cmd)
     return None
 
+
 @app.get("/trains/dcc/power/{value}")
 async def loco_get(value: int):
-    value = 1 if value>0 else 0
+    value = 1 if value > 0 else 0
     cmd = f"<{value} MAIN>"
     await send_dcc_cmd_close(cmd)
     return None
+
 
 @app.get("/neopixel")
 async def root():
