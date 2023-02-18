@@ -6,6 +6,7 @@ import '@fontsource/roboto/700.css';
 //import * as React from 'react';
 import React, { useEffect } from 'react';
 import LocoCard from './LocoCard'
+import CarCard from './CarCard'
 
 import './App.css';
 
@@ -57,29 +58,33 @@ function App() {
         vlakovým zabezpečovacím zařízením.
         " 
       />
-      <LocoCard 
+      <CarCard 
         dcc_id="5"
-        sound="false"
-        loco_img="/client/roco-54169.jpg"
-        loco_title=""
-        loco_details="
-        " 
+        under_light="true"
+        car_img="/client/roco-54169.jpg"
+        car_title="osobní vůz ČD Amz 1.tř Najbrt"
+        car_details="Čtyřnápravový vůz 1. třídy ve zkrácené verzi 1:100"
       />
-      <LocoCard 
+      <CarCard
         dcc_id="6"
-        sound="false"
-        loco_img="/client/roco-54171.jpg"
-        loco_title=""
-        loco_details="
-        " 
+        under_light="true"
+        car_img="/client/roco-54171.jpg"
+        car_title="jídelní vůz ČD WRmz Najbrt"
+        car_details="Čtyřnápravový vůz 2. třídy uváděný jako ve zkrácené verzi 1:100, vhodné na menší kolejiště s menšími poloměry oblouků."
       />
-      <LocoCard 
+      <CarCard
         dcc_id="7"
-        sound="false"
-        loco_img="/client/piko-58769.jpg"
-        loco_title=""
-        loco_details="
-        " 
+        under_light="true"
+        car_img="/client/piko-58769.jpg"
+        car_title="ČSD kotlový vůz"
+        car_details="Spolek pro chemickou a hutní výrobu - Ústí nad Labem"
+      />
+      <CarCard
+        dcc_id="8"
+        under_light="false"
+        car_img="/client/roco-76731.jpg"
+        car_title=""
+        car_details=""
       />
    </>
   );
