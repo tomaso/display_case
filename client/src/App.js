@@ -83,8 +83,8 @@ function App() {
         dcc_id="8"
         under_light="false"
         car_img="/client/roco-76731.jpg"
-        car_title=""
-        car_details=""
+        car_title="Gondolas, Ecco Rail"
+        car_details="2 piece set Gondolas type Eaos of the Wagon rental company Axbnet hired out to the Ecco Rail."
       />
    </>
   );
