@@ -138,3 +138,12 @@ async def loco_get(value: int):
 @app.get("/neopixel")
 async def root():
     return neopixels_data
+
+
+@app.put("/neopixel/all/{v}")
+async def neopixel_put(v: int):
+    v = v % 256
+    for i in range(len(neopixels_data)):
+        neopixels_data[i] = v
+    await update_neopixels()
+    return None

@@ -8,6 +8,11 @@ import React, { useEffect } from 'react';
 import LocoCard from './LocoCard'
 import CarCard from './CarCard'
 
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Divider from '@mui/material/Divider';
+import LightbulbCircleIcon from '@mui/icons-material/LightbulbCircle';
+
 import './App.css';
 
 let host_endpoint = 'http://rpi1.kouba.xyz:8001';
@@ -24,12 +29,44 @@ function PowerOn() {
     .then(response => response.json())
 }
 
+function LightAllOn() {
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+    };
+    fetch(
+        host_endpoint+'/neopixel/all/255',
+        requestOptions
+    )
+    .then(response => response.json())
+}
+function LightAllOff() {
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+    };
+    fetch(
+        host_endpoint+'/neopixel/all/0',
+        requestOptions
+    )
+    .then(response => response.json())
+}
+
 function App() {
   useEffect(() => {
 	  PowerOn();
   });
   return (
     <>
+      <ButtonGroup>
+        <Button value="light" aria-label="light" onClick={LightAllOn}>
+          <LightbulbCircleIcon color="success" />
+        </Button>
+        <Button value="light" aria-label="light" onClick={LightAllOff}>
+          <LightbulbCircleIcon color="error" />
+        </Button>
+      </ButtonGroup>
+      <Divider />
       <LocoCard 
         dcc_id="2"
         sound="false"
