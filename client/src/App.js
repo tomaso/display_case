@@ -70,14 +70,14 @@ function App() {
       <LocoCard 
         dcc_id="2"
         sound="false"
-        loco_img="/client/loco_br_185.jpg"
+        loco_img={require('./imgs/loco_br_185.jpg')}
         loco_title="Elektrická lokomotiva řady 185"
         loco_details=""
       />
       <LocoCard 
         dcc_id="3"
         sound="false"
-        loco_img="/client/loco_114_298-3.jpg" 
+        loco_img={require('./imgs/loco_114_298-3.jpg')} 
         loco_title="Dieselová lokomotiva řady 114 Deutsche Reichsbahn" 
         loco_details="Původní řada 110 byla vyvinuta pro osobní a nákladní vlakovou dopravu a jako 
         varianta pro použití v posunovacích službách pro DR. Maximální rychlost byla 
@@ -88,7 +88,7 @@ function App() {
       <LocoCard 
         dcc_id="4"
         sound="true"
-        loco_img="/client/loco_br_170.jpg" 
+        loco_img={require('./imgs/loco_br_170.jpg')} 
         loco_title="el. lokomotiva BR 170 DB-AG Polska"
         loco_details="Varianta lokomotivy Vectron pro DB Schenker Rail Polska 
         je určena pro provoz v polské stejnosměrné síti a je vybavena příslušným 
@@ -98,28 +98,28 @@ function App() {
       <CarCard 
         dcc_id="5"
         under_light="true"
-        car_img="/client/roco-54169.jpg"
+        car_img={require('./imgs/roco-54169.jpg')}
         car_title="osobní vůz ČD Amz 1.tř Najbrt"
         car_details="Čtyřnápravový vůz 1. třídy ve zkrácené verzi 1:100"
       />
       <CarCard
         dcc_id="6"
         under_light="true"
-        car_img="/client/roco-54171.jpg"
+        car_img={require('./imgs/roco-54171.jpg')}
         car_title="jídelní vůz ČD WRmz Najbrt"
         car_details="Čtyřnápravový vůz 2. třídy uváděný jako ve zkrácené verzi 1:100, vhodné na menší kolejiště s menšími poloměry oblouků."
       />
       <CarCard
         dcc_id="7"
         under_light="true"
-        car_img="/client/piko-58769.jpg"
+        car_img={require('./imgs/piko-58769.jpg')}
         car_title="ČSD kotlový vůz"
         car_details="Spolek pro chemickou a hutní výrobu - Ústí nad Labem"
       />
       <CarCard
         dcc_id="8"
         under_light="false"
-        car_img="/client/roco-76731.jpg"
+        car_img={require('./imgs/roco-76731.jpg')}
         car_title="Gondolas, Ecco Rail"
         car_details="2 piece set Gondolas type Eaos of the Wagon rental company Axbnet hired out to the Ecco Rail."
       />
