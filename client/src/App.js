@@ -123,6 +123,48 @@ function App() {
         car_title="Gondolas, Ecco Rail"
         car_details="2 piece set Gondolas type Eaos of the Wagon rental company Axbnet hired out to the Ecco Rail."
       />
+      <CarCard
+        dcc_id="9"
+        under_light="false"
+        car_img={require('./imgs/roco-76699.jpeg')}
+        car_title=""
+        car_details=""
+      />
+      <CarCard
+        dcc_id="10"
+        under_light="false"
+        car_img={require('./imgs/roco-76012.jpg')}
+        car_title=""
+        car_details=""
+      />
+      <CarCard
+        dcc_id="11"
+        under_light="false"
+        car_img={require('./imgs/roco-56272.jpg')}
+        car_title=""
+        car_details=""
+      />
+      <CarCard
+        dcc_id="12"
+        under_light="false"
+        car_img={require('./imgs/igra-96110016.jpg')}
+        car_title=""
+        car_details=""
+      />
+      <CarCard
+        dcc_id="13"
+        under_light="false"
+        car_img={require('./imgs/piko-58960.jpg')}
+        car_title=""
+        car_details=""
+      />
+      <CarCard
+        dcc_id="14"
+        under_light="false"
+        car_img={require('./imgs/roco-76780.jpg')}
+        car_title=""
+        car_details=""
+      />
    </>
   );
 }
