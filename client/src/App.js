@@ -97,14 +97,14 @@ function App() {
       />
       <CarCard 
         dcc_id="5"
-        under_light="true"
+        under_light="false"
         car_img={require('./imgs/roco-54169.jpg')}
         car_title="osobní vůz ČD Amz 1.tř Najbrt"
         car_details="Čtyřnápravový vůz 1. třídy ve zkrácené verzi 1:100"
       />
       <CarCard
         dcc_id="6"
-        under_light="true"
+        under_light="false"
         car_img={require('./imgs/roco-54171.jpg')}
         car_title="jídelní vůz ČD WRmz Najbrt"
         car_details="Čtyřnápravový vůz 2. třídy uváděný jako ve zkrácené verzi 1:100, vhodné na menší kolejiště s menšími poloměry oblouků."
@@ -139,7 +139,7 @@ function App() {
       />
       <CarCard
         dcc_id="11"
-        under_light="false"
+        under_light="true"
         car_img={require('./imgs/roco-56272.jpg')}
         car_title=""
         car_details=""
@@ -162,6 +162,20 @@ function App() {
         dcc_id="14"
         under_light="false"
         car_img={require('./imgs/roco-76780.jpg')}
+        car_title=""
+        car_details=""
+      />
+      <CarCard
+        dcc_id="15"
+        under_light="true"
+        car_img={require('./imgs/piko-97164.jpg')}
+        car_title=""
+        car_details=""
+      />
+      <CarCard
+        dcc_id="16"
+        under_light="true"
+        car_img={require('./imgs/piko-57611.jpg')}
         car_title=""
         car_details=""
       />

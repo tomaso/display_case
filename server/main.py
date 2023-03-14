@@ -41,9 +41,10 @@ loco_data = {
     2: {"start": 14, "end": 22},
     3: {"start": 8, "end": 15},
     4: {"start": 1, "end": 8},
-    5: {"start": 23, "end": 31},
-    6: {"start": 31, "end": 40},
     7: {"start": 41, "end": 44},
+    11: {"start": 29, "end": 34},
+    15: {"start": 35, "end": 40},
+    16: {"start": 23, "end": 31},
 }
 
 
