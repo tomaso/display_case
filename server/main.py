@@ -41,10 +41,14 @@ loco_data = {
     2: {"start": 14, "end": 22},
     3: {"start": 8, "end": 15},
     4: {"start": 1, "end": 8},
-    7: {"start": 40, "end": 44},
-    11: {"start": 32, "end": 36},
-    15: {"start": 37, "end": 40},
-    16: {"start": 23, "end": 32},
+    14: {"start": 23, "end": 27},
+    15: {"start": 28, "end": 32},
+    7: {"start": 33, "end": 38},
+    9: {"start": 39, "end": 45},
+    12: {"start": 45, "end": 52},
+    13: {"start": 52, "end": 60},
+    11: {"start": 61, "end": 68},
+    8: {"start": 68, "end": 79},
 }
 
 
