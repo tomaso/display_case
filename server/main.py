@@ -33,7 +33,7 @@ class Pixel(BaseModel):
     b: int
 
 
-NO_NEOPIXELS = 45
+NO_NEOPIXELS = 83
 
 neopixels_data = dict(zip(range(NO_NEOPIXELS), (0,) * NO_NEOPIXELS))
 
