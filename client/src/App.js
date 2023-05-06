@@ -179,6 +179,20 @@ function App() {
         car_title=""
         car_details=""
       />
+      <CarCard
+        dcc_id="17"
+        under_light="false"
+        car_img={require('./imgs/piko-58688.jpg')}
+        car_title="osobní vůz 1. Klasse Newlook SBB Ep. VI"
+        car_details=""
+      />
+      <CarCard
+        dcc_id="18"
+        under_light="false"
+        car_img={require('./imgs/piko-58689.jpg')}
+        car_title="osobní vůz 2.tř. Newlook SBB Ep. VI"
+        car_details=""
+      />
    </>
   );
 }
