@@ -209,6 +209,20 @@ function App() {
         car_title="osobní vůz 2.tř. Newlook SBB Ep. VI"
         car_details=""
       />
+      <CarCard
+        dcc_id="24"
+        under_light="false"
+        car_img={require('./imgs/_vyr_115617106.jpg')}
+        car_title=""
+        car_details=""
+      />
+      <CarCard
+        dcc_id="25"
+        under_light="false"
+        car_img={require('./imgs/_vyr_256517807.jpg')}
+        car_title="Bachmann HO 40' Single-Dome Tank Car - Alaska Railroad"
+        car_details=""
+      />
    </>
   );
 }
