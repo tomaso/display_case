@@ -95,99 +95,115 @@ function App() {
         vlakovým zabezpečovacím zařízením.
         " 
       />
-      <CarCard 
+      <LocoCard 
         dcc_id="5"
+        sound="true"
+        loco_img={require('./imgs/bachmann-623.jpg')} 
+        loco_title=""
+        loco_details="
+        " 
+      />
+      <LocoCard 
+        dcc_id="6"
+        sound="true"
+        loco_img={require('./imgs/sbb-re460.jpg')} 
+        loco_title=""
+        loco_details="
+        " 
+      />
+      <CarCard 
+        dcc_id="10"
         under_light="false"
         car_img={require('./imgs/roco-54169.jpg')}
         car_title="osobní vůz ČD Amz 1.tř Najbrt"
         car_details="Čtyřnápravový vůz 1. třídy ve zkrácené verzi 1:100"
       />
       <CarCard
-        dcc_id="6"
+        dcc_id="11"
         under_light="false"
         car_img={require('./imgs/roco-54171.jpg')}
         car_title="jídelní vůz ČD WRmz Najbrt"
         car_details="Čtyřnápravový vůz 2. třídy uváděný jako ve zkrácené verzi 1:100, vhodné na menší kolejiště s menšími poloměry oblouků."
       />
       <CarCard
-        dcc_id="7"
+        dcc_id="12"
         under_light="true"
         car_img={require('./imgs/piko-58769.jpg')}
         car_title="ČSD kotlový vůz"
         car_details="Spolek pro chemickou a hutní výrobu - Ústí nad Labem"
       />
       <CarCard
-        dcc_id="8"
+        dcc_id="13"
         under_light="true"
         car_img={require('./imgs/roco-76731.jpg')}
         car_title="Gondolas, Ecco Rail"
         car_details="2 piece set Gondolas type Eaos of the Wagon rental company Axbnet hired out to the Ecco Rail."
       />
       <CarCard
-        dcc_id="9"
+        dcc_id="14"
         under_light="true"
         car_img={require('./imgs/roco-76699.jpeg')}
         car_title=""
         car_details=""
       />
       <CarCard
-        dcc_id="10"
+        dcc_id="15"
         under_light="false"
         car_img={require('./imgs/roco-76012.jpg')}
         car_title=""
         car_details=""
       />
       <CarCard
-        dcc_id="11"
+        dcc_id="16"
         under_light="true"
         car_img={require('./imgs/roco-56272.jpg')}
         car_title=""
         car_details=""
       />
       <CarCard
-        dcc_id="12"
+        dcc_id="17"
         under_light="true"
         car_img={require('./imgs/igra-96110016.jpg')}
         car_title=""
         car_details=""
       />
       <CarCard
-        dcc_id="13"
+        dcc_id="18"
         under_light="true"
         car_img={require('./imgs/piko-58960.jpg')}
         car_title=""
         car_details=""
       />
       <CarCard
-        dcc_id="14"
+        dcc_id="19"
         under_light="true"
         car_img={require('./imgs/roco-76780.jpg')}
         car_title=""
         car_details=""
       />
       <CarCard
-        dcc_id="15"
+        dcc_id="20"
         under_light="true"
         car_img={require('./imgs/piko-97164.jpg')}
         car_title=""
         car_details=""
       />
       <CarCard
-        dcc_id="16"
+        dcc_id="21"
         under_light="false"
         car_img={require('./imgs/piko-57611.jpg')}
         car_title=""
         car_details=""
       />
       <CarCard
-        dcc_id="17"
+        dcc_id="22"
         under_light="false"
         car_img={require('./imgs/piko-58688.jpg')}
         car_title="osobní vůz 1. Klasse Newlook SBB Ep. VI"
         car_details=""
       />
       <CarCard
-        dcc_id="18"
+        dcc_id="23"
         under_light="false"
         car_img={require('./imgs/piko-58689.jpg')}
         car_title="osobní vůz 2.tř. Newlook SBB Ep. VI"
