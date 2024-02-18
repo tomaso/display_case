@@ -29,6 +29,18 @@ function PowerOn() {
     .then(response => response.json())
 }
 
+function SilenceBachmann623() {
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    };
+    fetch(
+        host_endpoint+'/trains/dcc/6/8/1',
+        requestOptions
+    )
+    .then(response => response.json())
+}
+
 function LightAllOn() {
     const requestOptions = {
         method: 'PUT',
@@ -55,6 +67,7 @@ function LightAllOff() {
 function App() {
   useEffect(() => {
 	  PowerOn();
+          SilenceBachmann623();
   });
   return (
     <>
