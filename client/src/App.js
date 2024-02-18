@@ -35,7 +35,7 @@ function SilenceBachmann623() {
         headers: { 'Content-Type': 'application/json' },
     };
     fetch(
-        host_endpoint+'/trains/dcc/6/8/1',
+        host_endpoint+'/trains/dcc/5/8/1',
         requestOptions
     )
     .then(response => response.json())
