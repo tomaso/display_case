@@ -236,6 +236,13 @@ function App() {
         car_title="Bachmann HO 40' Single-Dome Tank Car - Alaska Railroad"
         car_details=""
       />
+      <CarCard
+        dcc_id="26"
+        under_light="false"
+        car_img={require('./imgs/piko-72226.jpg')}
+        car_title="Cisterna Zacens VKS"
+        car_details=""
+      />
    </>
   );
 }
