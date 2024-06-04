@@ -15,7 +15,7 @@ import LightbulbCircleIcon from '@mui/icons-material/LightbulbCircle';
 
 import './App.css';
 
-let host_endpoint = 'http://rpi1.kouba.xyz:8001';
+let host_endpoint = 'http://rpi9.kouba.xyz:8001';
 
 function PowerOn() {
     const requestOptions = {

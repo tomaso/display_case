@@ -16,6 +16,7 @@ app.mount("/client", StaticFiles(directory="client"), name="client")
 origins = [
     "http://localhost:8001",
     "http://rpi1.kouba.xyz:8001",
+    "http://rpi9.kouba.xyz:8001",
 ]
 
 app.add_middleware(
