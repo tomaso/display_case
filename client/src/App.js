@@ -111,6 +111,7 @@ function App() {
       <LocoCard 
         dcc_id="5"
         sound="true"
+        unmute_function="8"
         loco_img={require('./imgs/bachmann-623.jpg')} 
         loco_title=""
         loco_details="

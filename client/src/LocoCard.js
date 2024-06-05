@@ -14,6 +14,7 @@ import LightIcon from '@mui/icons-material/Light';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import HighlightIcon from '@mui/icons-material/Highlight';
 import TrainIcon from '@mui/icons-material/Train';
 
@@ -37,6 +38,7 @@ interface ExpandMoreProps extends IconButtonProps {
     const [locoLight, setLocoLight] = React.useState(false);
     const [locoHeadlight, setLocoHeadlight] = React.useState(false);
     const [locoRunning, setLocoRunning] = React.useState(false);
+    const [locoMuted, setLocoMuted] = React.useState(true);
     //let host_endpoint = 'http://172.17.0.16:8001';
     //let host_endpoint = 'http://127.0.0.1:8001';
     let host_endpoint = 'http://rpi9.kouba.xyz:8001';
@@ -91,6 +93,11 @@ interface ExpandMoreProps extends IconButtonProps {
         setLocoRunning(!locoRunning);
         executeShortDCCCmd(16,(!locoRunning ? 1 : 0));
     };
+
+    const handleUnmuteClick = () => {
+        setLocoMuted(!locoMuted);
+        executeShortDCCCmd(8,(!locoMuted ? 1 : 0));
+    };
   
     return (
         <Card variant="outlined" sx={{ minWidth: 345, maxWidth: 345, display: "inline-block", verticalAlign: "top" }}>
@@ -131,6 +138,13 @@ interface ExpandMoreProps extends IconButtonProps {
                 </IconButton>
                 <IconButton aria-label="horn" onClick={handleHornClick}>
                 <VolumeUpIcon/>
+                </IconButton>
+              </>
+            }
+            {inputProps.unmute_function &&
+              <>
+                <IconButton aria-label="muted" onClick={handleUnmuteClick}>
+                <VolumeOffIcon/>
                 </IconButton>
               </>
             }
