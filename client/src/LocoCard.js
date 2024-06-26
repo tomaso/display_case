@@ -78,10 +78,10 @@ interface ExpandMoreProps extends IconButtonProps {
     };
 
     const handleHornClick = () => {
-        executeShortDCCCmd(12,1);
-	setTimeout(() => {
-        	executeShortDCCCmd(12,0);
-	}, 1000)
+        executeShortDCCCmd(2,1);
+	// setTimeout(() => {
+  //       	executeShortDCCCmd(12,0);
+	// }, 1000)
     };
 
     const handleHeadlightClick = () => {
