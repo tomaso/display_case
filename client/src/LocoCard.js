@@ -80,7 +80,7 @@ export default function LocoCard(inputProps) {
   const handleHornClick = () => {
     executeShortDCCCmd(2, 1);
     setTimeout(() => {
-      executeShortDCCCmd(12, 0);
+      executeShortDCCCmd(2, 0);
     }, 1000)
   };
 
