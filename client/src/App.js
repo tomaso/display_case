@@ -244,6 +244,13 @@ function App() {
         car_title="Cisterna Zacens VKS"
         car_details=""
       />
+      <CarCard
+        dcc_id="27"
+        under_light="false"
+        car_img={require('./imgs/trix-24169.png')}
+        car_title="Agrorail výsypné vozy"
+        car_details=""
+      />
    </>
   );
 }
