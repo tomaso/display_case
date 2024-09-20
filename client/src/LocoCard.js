@@ -67,7 +67,6 @@ export default function LocoCard(inputProps) {
       .then(response => response.json())
   }
 
-
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
