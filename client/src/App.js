@@ -251,6 +251,20 @@ function App() {
         car_title="Agrorail výsypné vozy"
         car_details=""
       />
+      <CarCard
+        dcc_id="28"
+        under_light="false"
+        car_img={require('./imgs/roco-76574.webp')}
+        car_title="Plošinový vůz se dřevem Rs, SBB"
+        car_details=""
+      />
+      <CarCard
+        dcc_id="29"
+        under_light="false"
+        car_img={require('./imgs/roco-56250.webp')}
+        car_title="vůz na štěrk Talbot ČSD, krátký výsypný"
+        car_details=""
+      />
    </>
   );
 }
