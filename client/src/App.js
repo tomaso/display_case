@@ -125,6 +125,16 @@ function App() {
         loco_details="
         " 
       />
+      <LocoCard 
+        dcc_id="7"
+        sound="false"
+        loco_img={require('./imgs/roco-7710003.jpg')} 
+        loco_title="motorová jednotka 841 201-7 RegioSpider ČD"
+        loco_details="Jako náhradu za zastaralé motorové vozy řady M 152.0 pořídily České dráhy nové motorové vozy RegioShuttle 1 od společnosti Stadler.
+        Klimatizované nízkopodlažní motorové vozy od roku 2012 stanovují nové standardy v české regionální dopravě.
+        Dva dieselové motory, každý o výkonu 265 kW, zrychlují motorový vůz na maximální rychlost až 120 km/h.
+        " 
+      />
       <CarCard 
         dcc_id="10"
         under_light="false"
@@ -263,6 +273,13 @@ function App() {
         under_light="false"
         car_img={require('./imgs/roco-56250.webp')}
         car_title="vůz na štěrk Talbot ČSD, krátký výsypný"
+        car_details=""
+      />
+      <CarCard
+        dcc_id="30"
+        under_light="false"
+        car_img={require('./imgs/roco-6600237.jpg')}
+        car_title="Uacs 'Českomoravský cement'"
         car_details=""
       />
    </>
